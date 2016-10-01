@@ -30,8 +30,4 @@ def weather(request):
 	
 
 	# 	context = z
-	return redirect(reverse('trip'))
-
-@require_GET
-def sendAndroidData(request):
-	pass
+	return render(request,'weather.html',z)

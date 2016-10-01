@@ -15,7 +15,7 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
 
 </head>
-<body>
+<body id="body_main">
 	<header id="home">
 		<div id="page-headers">
 			<img src="{% static 'common/images/main-logo.png' %}">
@@ -340,13 +340,13 @@ $.ajax({
   type: 'POST',
   url: 'http://127.0.0.1:8000/trip',
   crossDomain: true,
-  data: {"avg_temp": average_temp,"pairs":num_clothe},
+  data: data,
   success: function(responseData, textStatus, jqXHR) {
     var value = responseData.someKey;
-    console.log(responseData);
+    document.getElementById('body_main').innerHTML = responseData;
   },
   error: function (responseData, textStatus, errorThrown) {
-    alert('POST failed.');
+   // alert('POST failed.');
   }
 });	
 }
